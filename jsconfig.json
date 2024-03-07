@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*" : ["src/assets/*"],
+      "@pages/*" : ["src/pages/*"],
+      "@redux/*" : ["src/redux/*"],
+      "@shared/*" : ["src/shared/*"],
+      "@util/*": ["src/util/*"],
+      "@aous/*": ["src/apis"]
+    }
+  },
+  "include": ["src", "**/*.js", "**/*.jsx"],
+}
