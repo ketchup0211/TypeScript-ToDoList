@@ -12,10 +12,10 @@ const todoSlice = createSlice({
     },
     addTodo: (state, action:PayloadAction<Todo>) =>{
       state.push(action.payload);
-      console.log(action.payload);
     },
     deleteTodo:(state,action:PayloadAction<Todo>)=>{
-      return state.filter((todo)=>{todo.id!==action.payload.id});
+      const res = state.filter((todo)=>todo.id!==action.payload.id);
+      return res;
     },
     toggleTodoIsDone:(state,action:PayloadAction<Todo>)=>{
       return state.map((todo)=>{
