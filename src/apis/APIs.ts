@@ -6,19 +6,19 @@ const todosAPI = axios.create({
   baseURL:BASE_URL,
 })
 
-export const getTodos = async() : Promise<Todo[]> =>{
+export const getTodos_DB = async() : Promise<Todo[]> =>{
   const res = await todosAPI.get("/todos");
   return res.data;
 }
 
-export const addTodo = async(newTodo : Todo):Promise<void>=>{
+export const addTodo_DB = async(newTodo : Todo):Promise<void>=>{
   await todosAPI.post(`/todos/${newTodo.id}`, newTodo);
 }
 
-export const updateTodo = async(updatedTodo : Todo):Promise<void>=>{
+export const updateTodo_DB = async(updatedTodo : Todo):Promise<void>=>{
   await todosAPI.patch(`/todos/${updatedTodo.id}`, updatedTodo);
 }
 
-export const deleteTodo = async(id : number):Promise<void>=>{
+export const deleteTodo_DB = async(id : number):Promise<void>=>{
   await todosAPI.post(`/todos/${id}`);
 }

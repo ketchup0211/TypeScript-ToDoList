@@ -1,7 +1,7 @@
 import styles from './List.module.css'
 import { ListProps } from '../../../shared/types';
 
-function List({title, list}:ListProps){
+function List({title, list, handleTodoDelete}:ListProps){
   return (
     <div className={styles.list_container}>
       <h3 className={styles.category}>{title}</h3>
@@ -12,8 +12,8 @@ function List({title, list}:ListProps){
               <p className={styles.todo_title}>{todo.title}</p>
               <p className={styles.todo_contents}>{todo.contents}</p>
               <div className={styles.button_container}>
-                <button>삭제하기</button>
-                <button>완료</button>
+                <button onClick={()=>handleTodoDelete(todo)}>삭제하기</button>
+                <button>{todo.isDone ? '취소' : '완료'}</button>
               </div>
             </div>
           </div>
