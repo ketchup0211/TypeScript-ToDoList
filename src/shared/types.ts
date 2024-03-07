@@ -4,13 +4,14 @@ export type Todo = {
   title : string;
   contents : string;
   isDone : boolean;
-  id : number;
+  id : string;
 }
 
 export type ListProps = {
   title: string;
   list : Todo[];
   handleTodoDelete : (todo:Todo)=>void;
+  handleTodoisDone : (todo:Todo)=>void;
 }
 
 export type RootState = ReturnType<typeof store.getState>

@@ -19,6 +19,6 @@ export const updateTodo_DB = async(updatedTodo : Todo):Promise<void>=>{
   await todosAPI.patch(`/todos/${updatedTodo.id}`, updatedTodo);
 }
 
-export const deleteTodo_DB = async(id : number):Promise<void>=>{
-  await todosAPI.post(`/todos/${id}`);
+export const deleteTodo_DB = async(id : string):Promise<void>=>{
+  await todosAPI.delete(`/todos/${id}`);
 }

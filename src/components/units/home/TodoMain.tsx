@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import Form from "./Form";
 import List from "./List";
-import { deleteTodo_DB, getTodos_DB } from "../../../apis/APIs";
-import { deleteTodo, setTodoList } from "../../../redux/modules/todoSlice";
+import { deleteTodo_DB, getTodos_DB, updateTodo_DB } from "../../../apis/APIs";
+import { deleteTodo, setTodoList, toggleTodoIsDone } from "../../../redux/modules/todoSlice";
 import { Todo } from "../../../shared/types";
 import { useAppDispatch, useAppSelector } from "../../../util/hooks";
 const WORKING_LIST = "Working...🔥";
@@ -15,26 +15,48 @@ function TodoMain(){
   const doneList:Todo[] = todoList.filter((todo)=>todo.isDone===true);
 
   const handleTodoDelete = async(todo:Todo) =>{
-    await deleteTodo_DB(todo.id);
-    dispatch(deleteTodo(todo))
+    const agree = confirm('투두를 삭제합니까?');
+    if(agree){
+      await deleteTodo_DB(todo.id);
+      dispatch(deleteTodo(todo));
+    }
+    return;
   }
+
+  const handleTodoisDone = async(todo:Todo)=>{
+    alert("완료 상태를 변경했습니다.")
+    await updateTodo_DB({...todo, isDone : !todo.isDone});
+    dispatch(toggleTodoIsDone(todo));
+  }
+
+
   useEffect(()=>{
     const fetchTodoList = async() =>{
       try{
-        const todoList = await getTodos_DB();
-        dispatch(setTodoList(todoList));
+        const data = await getTodos_DB();
+        dispatch(setTodoList(data));
       } catch(error){
         console.error(error)
       }
     }
     fetchTodoList();
-  },[])
+  },[todoList])
 
   return(
     <div>
       <Form/>
-      <List title= {WORKING_LIST} list = {workingList} handleTodoDelete={handleTodoDelete}/>
-      <List title={DONE_LIST} list = {doneList} handleTodoDelete={handleTodoDelete}/>
+      <List 
+        title= {WORKING_LIST} 
+        list = {workingList} 
+        handleTodoDelete={handleTodoDelete} 
+        handleTodoisDone={handleTodoisDone}
+      />
+      <List 
+        title={DONE_LIST} 
+        list = {doneList} 
+        handleTodoDelete={handleTodoDelete} 
+        handleTodoisDone={handleTodoisDone}
+      />
     </div>
   )
 }
