@@ -1,8 +1,8 @@
 import styles from './Header.module.css';
 function Header() {
   return (
-    <header className={styles.header}>
-      <h1>투두리스트</h1>
+    <header>
+      <h1 className={styles.title}>To-Do List</h1>
     </header>
   )
 }

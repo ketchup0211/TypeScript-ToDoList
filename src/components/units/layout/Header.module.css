@@ -1,4 +1,11 @@
 header{
   height: 70px;
-  background-color: red;
+  background-color: whitesmoke;
+
+}
+
+.title{
+  font-size: 28px;
+  line-height: 70px;
+  padding-left: 20px;
 }
