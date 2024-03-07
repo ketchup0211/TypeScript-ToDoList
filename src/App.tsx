@@ -1,13 +1,12 @@
-import Layout from "./components/units/layout/Layout"
-import Home from "./pages/Home"
+import Layout from "./components/units/layout/Layout";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <Layout>
-      <Home/>
+      <Home />
     </Layout>
-    
-  )
+  );
 }
 
-export default App
+export default App;

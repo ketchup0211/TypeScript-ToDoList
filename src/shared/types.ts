@@ -7,6 +7,12 @@ export type Todo = {
   id : string;
 }
 
+export type newTodo = Omit<Todo, 'id'>
+
+export type FormProps = {
+  handleTodoAdd : (todo:newTodo)=>void;
+}
+
 export type ListProps = {
   title: string;
   list : Todo[];

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Todo } from "../shared/types";
+import { Todo, newTodo } from "../shared/types";
 const BASE_URL = "http://localhost:4000"
 
 const todosAPI = axios.create({
@@ -11,8 +11,9 @@ export const getTodos_DB = async() : Promise<Todo[]> =>{
   return res.data;
 }
 
-export const addTodo_DB = async(newTodo : Todo):Promise<void>=>{
-  await todosAPI.post(`/todos/${newTodo.id}`, newTodo);
+export const addTodo_DB = async(newTodo : newTodo):Promise<Todo>=>{
+  const res = await todosAPI.post(`/todos`, newTodo);
+  return res.data;
 }
 
 export const updateTodo_DB = async(updatedTodo : Todo):Promise<void>=>{

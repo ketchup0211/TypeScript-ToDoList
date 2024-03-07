@@ -11,10 +11,11 @@ const todoSlice = createSlice({
       return action.payload;
     },
     addTodo: (state, action:PayloadAction<Todo>) =>{
-      state.push(action.payload) 
+      state.push(action.payload);
+      console.log(action.payload);
     },
     deleteTodo:(state,action:PayloadAction<Todo>)=>{
-      return state.filter((todo)=>{todo.id!==action.payload.id})
+      return state.filter((todo)=>{todo.id!==action.payload.id});
     },
     toggleTodoIsDone:(state,action:PayloadAction<Todo>)=>{
       return state.map((todo)=>{
