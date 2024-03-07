@@ -1,8 +1,8 @@
 {
   "todos" : [
     {
-      "todo_title": "리액트 공부하기",
-      "todo_contents" : "리액트 기초를 공부해봅시다.",
+      "title": "리액트 공부하기",
+      "contents" : "리액트 기초를 공부해봅시다.",
       "idDone": false,
       "id" : 0
     }
