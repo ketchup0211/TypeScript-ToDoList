@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Todo, newTodo } from "../shared/types";
-const BASE_URL = "http://localhost:4000"
+const BASE_URL = import.meta.env.VITE_APP_SERVER_URL;
 
 const todosAPI = axios.create({
   baseURL:BASE_URL,
