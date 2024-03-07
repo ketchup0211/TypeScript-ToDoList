@@ -1,9 +1,12 @@
-import Header from "../components/units/layout/Header"
+import Form from "../components/units/home/Form"
+import List from "../components/units/home/List"
+
 
 function Home() {
   return (
     <>
-      <Header/>
+      <Form/>
+      <List/>
     </>
   )
 }
