@@ -1,12 +1,12 @@
-span {
+.form_span {
   margin : 10px;
 }
 
-input {
+.form_input {
   margin-left: 5px;
 }
 
-button{
+.form_button{
   padding: 10px;
 }
 
