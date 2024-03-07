@@ -1,20 +1,25 @@
 import styles from './List.module.css'
+import { ListProps } from '../../../shared/types';
 
-function List(){
+function List({title, list, handleTodoDelete, handleTodoisDone}:ListProps){
   return (
     <div className={styles.list_container}>
-      <h3 className={styles.category}>Working</h3>
+      <h3 className={styles.category}>{title}</h3>
       <div className={styles.card_container}>
-        <div className={styles.card}>
-          <div>
-          <p className={styles.todo_title}>리액트 공부하기</p>
-          <p className={styles.todo_contents}>리액트 기초를 공부해봅시다.</p>
-          <div className={styles.button_container}>
-            <button>삭제하기</button>
-            <button>완료</button>
+        {list.map((todo)=>(
+          <div className={styles.card} key={todo.id}>
+            <div>
+              <p className={styles.todo_title}>{todo.title}</p>
+              <p className={styles.todo_contents}>{todo.contents}</p>
+              <div className={styles.button_container}>
+                <button onClick={()=>handleTodoDelete(todo)}>삭제하기</button>
+                <button onClick={()=>handleTodoisDone(todo)}>{todo.isDone ? '취소' : '완료'}</button>
+              </div>
+            </div>
           </div>
-          </div>
-        </div>
+          ))
+        }
+
       </div>
     </div>
   );

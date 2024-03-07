@@ -1,14 +1,9 @@
-import Form from "../components/units/home/Form"
-import List from "../components/units/home/List"
+import TodoMain from "../components/units/home/TodoMain"
 
 
 function Home() {
-  return (
-    <>
-      <Form/>
-      <List/>
-    </>
-  )
+  return <TodoMain/>;
+
 }
 
 export default Home

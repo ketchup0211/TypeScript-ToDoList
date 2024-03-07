@@ -20,21 +20,25 @@
 
 .card{
   flex-shrink: 0;
-  width : 300px;
-  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width : 400px;
+  height: 180px;
   padding:30px;
   border : 3px solid grey;
   border-radius: 15px;
 }
 
 .todo_title{
-  font-size: 20px;
-  font-weight: 400;
-  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 20px 0px;
 }
 
 .todo_contents{
   font-size : 16px;
+  padding : 5px;
   margin-bottom : 20px;
 }
 
