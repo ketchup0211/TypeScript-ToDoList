@@ -7,7 +7,7 @@ function List({title, list}:ListProps){
       <h3 className={styles.category}>{title}</h3>
       <div className={styles.card_container}>
         {list.map((todo)=>(
-          <div className={styles.card}>
+          <div className={styles.card} key={todo.id}>
             <div>
               <p className={styles.todo_title}>{todo.title}</p>
               <p className={styles.todo_contents}>{todo.contents}</p>
